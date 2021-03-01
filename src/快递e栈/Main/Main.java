@@ -5,8 +5,9 @@ import 快递e栈.View.Views;
 import 快递e栈.bean.Express;
 
 import java.io.*;
+import java.net.Socket;
 import java.util.HashSet;
-import java.util.Properties;
+
 
 public class Main {
 
@@ -16,9 +17,12 @@ public class Main {
         eMenu.dao = dao;
         cMenu.dao = dao;
     }
-    static Properties data = new Properties();
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
+//        Socket socket = new Socket("127.0.0.1",34765);
+//        InputStream is = socket.getInputStream();
+//        ObjectInputStream ois = new ObjectInputStream(is);
+
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data.txt"));
         HashSet<Express> set = (HashSet<Express>) ois.readObject();
         dao.setAka(set);

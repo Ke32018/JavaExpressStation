@@ -13,16 +13,16 @@ public class eMenu {
 //        p: while(true){
 
             switch (ch) {
-                case 1://添加
+                case 1://添加 不能添加id相同的快递
                     Express e = view.insert();
                     int code;
                     do {
-
                         code = dao.generateCode();
-
                     } while (isDuplicate(code));
-                    dao.addToSet(e, code);
-                    view.printExpress(e);
+                    if(!dao.judgeDuplicat(e)){
+                        dao.addToSet(e, code);
+                        view.printExpress(e);
+                    }else view.printDuplicate();
                     break;
                 case 2://删除 删除和修改都用了在这个类中的isNotFound方法处理异常
                     String id2 = view.idAsk();
@@ -33,9 +33,10 @@ public class eMenu {
                         dao.deleteFromSet(e2);
                     }
                     break;
-                case 3://修改
+                case 3://修改 不能将快递id修改至相同
                     String id3 = view.idAsk();
                     Express e3 = dao.findExpress(id3);
+
                     if(isNotFound(e3)) break;
                     Express e31 = dao.getBack(e3);
                     view.update(e3);

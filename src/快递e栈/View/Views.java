@@ -162,8 +162,7 @@ public class Views {
     }
 
 
-
-
-
-
+    public void printDuplicate() {
+        System.out.println("存在重复快递，请重新输入");
     }
+}
