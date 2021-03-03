@@ -2,10 +2,15 @@ package 快递e栈.View;
 
 import 快递e栈.bean.Express;
 
+import java.net.Socket;
 import java.util.Scanner;
 
 public class Views {
+    private Socket client;
+    private static final int PORT = 10086;
     Scanner input = new Scanner(System.in);
+
+
 
     /**
      * 主菜单视图，进入系统时即会显示

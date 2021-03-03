@@ -1,11 +1,7 @@
 package 快递e栈.Main;
 
 import 快递e栈.Dao.ExpressDao;
-import 快递e栈.bean.Express;
-
 import java.io.*;
-import java.util.HashSet;
-import java.util.Properties;
 
 public class firstUseToStart {
 

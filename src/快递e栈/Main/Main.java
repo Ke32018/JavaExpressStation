@@ -19,11 +19,11 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-//        Socket socket = new Socket("127.0.0.1",34765);
-//        InputStream is = socket.getInputStream();
-//        ObjectInputStream ois = new ObjectInputStream(is);
+        Socket socket = new Socket("127.0.0.1",34765);
+        InputStream is = socket.getInputStream();
+        ObjectInputStream ois = new ObjectInputStream(is);
 
-        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data.txt"));
+//        ObjectInputStream ois = new ObjectInputStream(new FileInputStream("data.txt"));
         HashSet<Express> set = (HashSet<Express>) ois.readObject();
         dao.setAka(set);
         p:while(true){
